@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Ingredient } from '../shared/ingredient.model'
-import { inflateSync } from 'zlib';
 
 @Component({
   selector: 'app-shopping-list',

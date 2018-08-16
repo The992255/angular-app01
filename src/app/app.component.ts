@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { inflateRawSync } from 'zlib';
 
 @Component({
   selector: 'app-root',
