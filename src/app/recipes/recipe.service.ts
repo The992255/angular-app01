@@ -21,7 +21,7 @@ export class RecipeService {
         'https://archive-media-1.nyafuu.org/bant/image/1514/13/1514130091969.png',
         [
             new Ingredient('洗苦課錢', 3),
-            new Ingredient('800鳳', 1)
+            new Ingredient('80靈夢', 1)
         ])
     ];
 
