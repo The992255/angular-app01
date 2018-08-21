@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Ingredient } from '../../shared/ingredient.model';
+import { ShoppingListService } from '../../shopping-list/shopping-list.service';
+import { Recipe } from '../recope.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -6,11 +10,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-  @Input('repiceToGet') repice;
+  @Input('recipeToGet') recipe: Recipe;
+  @Input('recipeID') recipeID: number;
 
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService, private recipeService: RecipeService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  toShoppingList(ingredients: Ingredient[]) {
+    this.recipeService.addIngredientToShoppingList(ingredients);
   }
 
+  delRecipe() {
+    this.recipeService.delRecipe(this.recipeID);    
+  }
 }

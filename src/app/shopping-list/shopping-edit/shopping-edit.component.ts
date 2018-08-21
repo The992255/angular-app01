@@ -1,23 +1,20 @@
-import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ShoppingListService } from '../shopping-list.service';
+import { Ingredient } from '../../shared/ingredient.model'
 
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
-  styleUrls: ['./shopping-edit.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-  @Output() play = new EventEmitter<{name: string, amount: number}>();
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit() {
   }
 
   addPlay (nameInput: HTMLInputElement, amountInput: HTMLInputElement) {
-    this.play.emit({
-      name: nameInput.value,
-      amount: amountInput.valueAsNumber
-    })
+    const ingredient = new Ingredient(nameInput.value, amountInput.valueAsNumber);
+    this.shoppingListService.addIngredients(ingredient);  
   }
-
 }
