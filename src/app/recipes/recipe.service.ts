@@ -5,7 +5,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
 @Injectable()
 export class RecipeService {
-    recipeSelected = new EventEmitter<{Recipe, recipeID: number}>();
+    recipeSelected = new EventEmitter();
     recipeF5 = new EventEmitter<Recipe[]>();
 
     constructor(private shoppingListService: ShoppingListService) {}
@@ -33,12 +33,17 @@ export class RecipeService {
     }
 
     delRecipe(id: number) {
-        console.log(id)
         this.recipes.splice(id, 1);
         this.recipeF5.emit(this.recipes.slice());
     }
 
     getRecipes() {
+        console.log(this.recipes)
         return this.recipes.slice();
+    }
+
+    getRecipeById(id: number) {
+        // return this.recipes.slice(id ,id+1)[0];
+        return this.recipes.slice()[id];
     }
 }
