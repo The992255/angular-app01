@@ -8,7 +8,7 @@ import { Subject } from '../../../node_modules/rxjs/Subject';
 export class RecipeService {
     recipeF5 = new Subject<Recipe[]>();
 
-    constructor(private shoppingListService: ShoppingListService) {}
+    constructor(private shoppingListService: ShoppingListService) { }
 
     private recipes: Recipe[] = [
         new Recipe('粗奶丸', '丸!!!!', 
