@@ -33,7 +33,7 @@ export class RecipeService {
     }
 
     delRecipe(id: number) {
-        this.recipes.splice(id, 1);
+        this.recipes.splice(id, 1);        
         this.recipeF5.next(this.recipes.slice());
     }
 
