@@ -45,4 +45,14 @@ export class RecipeService {
         // return this.recipes.slice(id ,id+1)[0];
         return this.recipes.slice()[id];
     }
+
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipeF5.next(this.recipes.slice());
+    }
+
+    updataRecipe(index: number, newRecipe: Recipe) {
+        this.recipes[index] = newRecipe;
+        this.recipeF5.next(this.recipes.slice());
+    }
 }

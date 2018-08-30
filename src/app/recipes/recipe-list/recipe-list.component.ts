@@ -18,8 +18,8 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     this.recipes = this.recipeService.getRecipes();
 
     this.subscription = this.recipeService.recipeF5.subscribe(
-      (Recipe) => {
-        this.recipes = Recipe;
+      (recipe: Recipe[]) => {
+        this.recipes = recipe;
       }
     )
   }

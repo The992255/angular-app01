@@ -43,8 +43,5 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     this.router.navigate(['/recipes'])
   }
 
-  ngOnDestroy() {
-    console.log("do");
-    
-  }
+  ngOnDestroy() { }
 }
