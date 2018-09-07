@@ -11,19 +11,29 @@ export class RecipeService {
     constructor(private shoppingListService: ShoppingListService) { }
 
     private recipes: Recipe[] = [
-        new Recipe('粗奶丸', '丸!!!!', 
-        'https://archive-media-0.nyafuu.org/bant/image/1513/71/1513711499530.png',
-        [
-            new Ingredient('讚領綜合', 1),
-            new Ingredient('異己烷', 1)
-        ]),
-        new Recipe('打架異己烷', '異己......烷!!!!!', 
-        'https://archive-media-1.nyafuu.org/bant/image/1514/13/1514130091969.png',
-        [
-            new Ingredient('洗苦課錢', 3),
-            new Ingredient('80靈夢', 1)
-        ])
+        new Recipe('粗奶丸', '丸!!!!',
+            'https://archive-media-0.nyafuu.org/bant/image/1513/71/1513711499530.png',
+            [
+                new Ingredient('讚領綜合', 1),
+                new Ingredient('異己烷', 1)
+            ]),
+        new Recipe('打架異己烷', '異己......烷!!!!!',
+            'https://archive-media-1.nyafuu.org/bant/image/1514/13/1514130091969.png',
+            [
+                new Ingredient('洗苦課錢', 3),
+                new Ingredient('80靈夢', 1)
+            ])
     ];
+
+    saveRecipes(newRecipes: Recipe[]) {
+        this.recipes = newRecipes;
+        if (newRecipes === null) {
+            this.recipeF5.next();
+        } else {
+            this.recipeF5.next(this.recipes.slice());
+        }
+
+    }
 
     addIngredientToShoppingList(ingredients: Ingredient[]) {
         // for (const key in ingredients) {
@@ -33,12 +43,12 @@ export class RecipeService {
     }
 
     delRecipe(id: number) {
-        this.recipes.splice(id, 1);        
+        this.recipes.splice(id, 1);
         this.recipeF5.next(this.recipes.slice());
     }
 
     getRecipes() {
-        return this.recipes.slice();
+        if (this.recipes !== null) { return this.recipes.slice(); }
     }
 
     getRecipeById(id: number) {
