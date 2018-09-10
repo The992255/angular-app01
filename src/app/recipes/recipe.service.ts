@@ -12,7 +12,7 @@ export class RecipeService {
 
     private recipes: Recipe[] = [
         new Recipe('粗奶丸', '丸!!!!',
-            'https://archive-media-0.nyafuu.org/bant/image/1513/71/1513711499530.png',
+            'http://img.komicolle.org/2016-01/14532837189673.jpg',
             [
                 new Ingredient('讚領綜合', 1),
                 new Ingredient('異己烷', 1)

@@ -36,13 +36,10 @@ export class AuthService {
     }
 
     getToken() {
-        console.log(this.token);
-        
         firebase.auth().currentUser.getIdToken()
         .then((token: string) => {
             this.token = token;
-        });            
-        console.log(this.token);
+        });
         return this.token;
     }
 

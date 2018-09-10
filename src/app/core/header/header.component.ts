@@ -4,6 +4,7 @@ import { Response } from '@angular/http';
 import { Recipe } from '../../recipes/recope.model';
 import { RecipeService } from '../../recipes/recipe.service';
 import { AuthService } from '../../auth/auth.service';
+import { HttpEvent } from '@angular/common/http';
 
 @Component({
     selector: 'app-header',
@@ -33,7 +34,7 @@ export class HeaderComponent {
 
     onSave() {
         this.fbService.putRecipe().subscribe(
-            (response: Response) => console.log(response),
+            (response) => console.log(response),
             (error: Response) => console.log(error)
         );
     }
