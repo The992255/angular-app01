@@ -1,15 +1,15 @@
 <div class="row">
   <div class="col-xs-12">
-    <img 
-      [src]="recipe.imagePath"
-      alt="{{ recipe.name }}"
+    <img
+      [src]="( recipe | async ).recipes[recipeID].imagePath"
+      alt="{{ ( recipe | async ).recipes[recipeID].name }}"
       class="img-responsive"
       style="max-height: 400px;">
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{ recipe.name }}</h1>
+    <h1>{{ ( recipe | async ).recipes[recipeID].name }}</h1>
   </div>
 </div>
 <div class="row">
@@ -20,7 +20,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a style="cursor: pointer;" (click)="toShoppingList(recipe.ingredients)">To Shopping List</a></li>
+        <li><a style="cursor: pointer;" (click)="toShoppingList()">To Shopping List</a></li>
         <li><a style="cursor: pointer;" (click)="editRecipe()">Edit Recipe</a></li>
         <li><a style="cursor: pointer;" (click)="delRecipe()">Delete Recipe</a></li>
       </ul>
@@ -29,15 +29,14 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    {{ recipe.description }}
+    {{ ( recipe | async ).recipes[recipeID].description }}
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
-      <li class="list-group-item"
-      *ngFor="let ingredient of recipe.ingredients">
-    {{ ingredient.name }} ({{ ingredient.amount }})</li>
+      <li class="list-group-item" *ngFor="let ingredient of ( recipe | async ).recipes[recipeID].ingredients">
+        {{ ingredient.name }} ({{ ingredient.amount }})</li>
     </ul>
   </div>
 </div>

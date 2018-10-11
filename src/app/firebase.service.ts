@@ -1,11 +1,13 @@
-import { Injectable } from "@angular/core";
-import { Headers, Response } from "@angular/http";
-import { RecipeService } from "./recipes/recipe.service";
-import 'rxjs/Rx'
-import { Observable } from "rxjs/Rx";
-import { AuthService } from "./auth/auth.service";
-import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from "@angular/common/http";
-import { Recipe } from "./recipes/recope.model";
+import { Injectable } from '@angular/core';
+import { Headers, Response } from '@angular/http';
+import { RecipeService } from './recipes/recipe.service';
+// tslint:disable-next-line:import-blacklist
+import 'rxjs/Rx';
+// tslint:disable-next-line:import-blacklist
+import { Observable } from 'rxjs/Rx';
+import { AuthService } from './auth/auth.service';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
+import { Recipe } from './recipes/recope.model';
 
 @Injectable()
 export class FirebaseService {
@@ -26,8 +28,8 @@ export class FirebaseService {
         //     })
         // const req = new HttpRequest('PUT', 'https://angular-learn-d3dbe.firebaseio.com/recipes.json',
         //     recipe, { reportProgress: true, params: new HttpParams().set('auth', token) })
-            const req = new HttpRequest('PUT', 'https://angular-learn-d3dbe.firebaseio.com/recipes.json',
-            recipe, { reportProgress: true})
+        const req = new HttpRequest('PUT', 'https://angular-learn-d3dbe.firebaseio.com/recipes.json',
+            recipe, { reportProgress: true });
         return this.httpClient.request(req);
     }
 
@@ -36,7 +38,7 @@ export class FirebaseService {
 
         // return this.httpClient.get<Recipe[]>('https://angular-learn-d3dbe.firebaseio.com/recipes.json?auth=' + token)
         // return this.httpClient.get<Recipe[]>('https://angular-learn-d3dbe.firebaseio.com/recipes.json?auth=' + token, {
-            return this.httpClient.get<Recipe[]>('https://angular-learn-d3dbe.firebaseio.com/recipes.json', {
+        return this.httpClient.get<Recipe[]>('https://angular-learn-d3dbe.firebaseio.com/recipes.json', {
             observe: 'body',
             responseType: 'json'
         })
@@ -45,6 +47,6 @@ export class FirebaseService {
             })
             .catch((error: Response) => {
                 return Observable.throw(error.statusText);
-            })
+            });
     }
 }

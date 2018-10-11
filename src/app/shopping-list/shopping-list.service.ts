@@ -1,4 +1,4 @@
-import { Ingredient } from '../shared/ingredient.model'
+import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from '../../../node_modules/rxjs/Subject';
 
 export class ShoppingListService {
@@ -25,9 +25,9 @@ export class ShoppingListService {
         this.ingredientAdd.next(this.ingredients.slice());
     }
 
-    addmanyIngredients(ingredients: Ingredient[]) {      
+    addmanyIngredients(ingredients: Ingredient[]) {
         this.ingredients.push(...ingredients);
-        //將一個物件陣列轉變為多個物件
+        // 將一個物件陣列轉變為多個物件
         this.ingredientAdd.next(this.ingredients.slice());
     }
 

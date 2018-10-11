@@ -8,7 +8,7 @@ import { ShardModule } from "../shared/shard.module";
 import { ShoppingRoutingModule } from "./shopping-routing.module";
 
 @NgModule({
-    declarations:[
+    declarations: [
         ShoppingListComponent,
         ShoppingEditComponent
     ],
@@ -18,4 +18,4 @@ import { ShoppingRoutingModule } from "./shopping-routing.module";
         ShoppingRoutingModule
     ]
 })
-export class ShoppingModule{}
+export class ShoppingModule { }

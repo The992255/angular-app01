@@ -3,12 +3,14 @@ import { Recipe } from './recope.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from '../../../node_modules/rxjs/Subject';
+import { Store } from '@ngrx/store';
+import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
 
 @Injectable()
 export class RecipeService {
     recipeF5 = new Subject<Recipe[]>();
 
-    constructor(private shoppingListService: ShoppingListService) { }
+    constructor(private shoppingListService: ShoppingListService, private store: Store<{ shoppingList: { ingredients: Ingredient[] } }>) { }
 
     private recipes: Recipe[] = [
         new Recipe('粗奶丸', '丸!!!!',
@@ -35,12 +37,13 @@ export class RecipeService {
 
     }
 
-    addIngredientToShoppingList(ingredients: Ingredient[]) {
-        // for (const key in ingredients) {
-        //     this.shoppingListService.addIngredients(ingredients[key])
-        // }
-        this.shoppingListService.addmanyIngredients(ingredients);
-    }
+    // addIngredientToShoppingList(ingredients: Ingredient[]) {
+    //     // for (const key in ingredients) {
+    //     //     this.shoppingListService.addIngredients(ingredients[key])
+    //     // }
+    //     // this.shoppingListService.addmanyIngredients(ingredients);
+    //     this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+    // }
 
     delRecipe(id: number) {
         this.recipes.splice(id, 1);

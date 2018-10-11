@@ -8,11 +8,11 @@ import 'firebase/messaging';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  ngOnInit(){
+export class AppComponent implements OnInit {
+  ngOnInit() {
     firebase.initializeApp({
-      apiKey: "AIzaSyCodMQ7mH_Ax-fo5XPg-5WHA1Gh8yLo5zE",
-      authDomain: "angular-learn-d3dbe.firebaseapp.com"
+      apiKey: 'AIzaSyCodMQ7mH_Ax-fo5XPg-5WHA1Gh8yLo5zE',
+      authDomain: 'angular-learn-d3dbe.firebaseapp.com'
     });
   }
 }
